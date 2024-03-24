@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class PostRepository {
-
-  private Long maxId = 0L;
+  static AtomicLong maxId = new AtomicLong(0);
 
   private Map<Long, Post> posts = new ConcurrentHashMap<>();
 
@@ -23,9 +23,8 @@ public class PostRepository {
 
   public Post save(Post post) {
     if (post.getId() == 0L) {
-      maxId++;
-      post.setId(maxId);
-    } else if (post.getId() > maxId) {
+      post.setId(maxId.incrementAndGet());
+    } else if (post.getId() > maxId.longValue()) {
       return null;
     }
     posts.put(post.getId(), post);

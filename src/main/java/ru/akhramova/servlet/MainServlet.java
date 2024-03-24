@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.atomic.AtomicLong;
 
-@WebServlet("/")
 public class MainServlet extends HttpServlet {
   private static final String GET = "GET";
   private static final String POST = "POST";

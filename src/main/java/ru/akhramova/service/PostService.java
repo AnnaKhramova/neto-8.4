@@ -1,11 +1,14 @@
 package ru.akhramova.service;
 
+import org.springframework.stereotype.Service;
 import ru.akhramova.exception.NotFoundException;
 import ru.akhramova.model.Post;
 import ru.akhramova.repository.PostRepository;
+import ru.akhramova.repository.PostRepositoryImpl;
 
 import java.util.List;
 
+@Service
 public class PostService {
   private final PostRepository repository;
 

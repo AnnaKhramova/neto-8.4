@@ -3,35 +3,14 @@ package ru.akhramova.repository;
 import ru.akhramova.model.Post;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
-public class PostRepository {
-  static AtomicLong maxId = new AtomicLong(0);
+public interface PostRepository {
+    List<Post> all();
 
-  private Map<Long, Post> posts = new ConcurrentHashMap<>();
+    Optional<Post> getById(long id);
 
-  public List<Post> all() {
-    return posts.values().stream().toList();
-  }
+    Post save(Post post);
 
-  public Optional<Post> getById(long id) {
-    return Optional.ofNullable(posts.get(id));
-  }
-
-  public Post save(Post post) {
-    if (post.getId() == 0L) {
-      post.setId(maxId.incrementAndGet());
-    } else if (post.getId() > maxId.longValue()) {
-      return null;
-    }
-    posts.put(post.getId(), post);
-    return post;
-  }
-
-  public void removeById(long id) {
-    posts.remove(id);
-  }
+    void removeById(long id);
 }

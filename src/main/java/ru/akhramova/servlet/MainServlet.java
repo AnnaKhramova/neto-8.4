@@ -1,14 +1,11 @@
 package ru.akhramova.servlet;
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import ru.akhramova.controller.PostController;
 import ru.akhramova.repository.PostRepository;
 import ru.akhramova.service.PostService;
-
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class MainServlet extends HttpServlet {
   private static final String GET = "GET";

@@ -1,8 +1,8 @@
 package ru.akhramova.servlet;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.akhramova.config.JavaConfig;
 import ru.akhramova.controller.PostController;
-import ru.akhramova.service.PostService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ public class MainServlet extends HttpServlet {
   @Override
   public void init() {
     // отдаём список пакетов, в которых нужно искать аннотированные классы
-    final var context = new AnnotationConfigApplicationContext("ru.akhramova");
+    final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
 
     // получаем по имени бина
     controller = (PostController) context.getBean("postController");

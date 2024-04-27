@@ -1,6 +1,5 @@
 package ru.akhramova.repository;
 
-import org.springframework.stereotype.Repository;
 import ru.akhramova.model.Post;
 
 import java.util.ArrayList;
@@ -9,9 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
 
-@Repository
 public class PostRepositoryImpl implements PostRepository {
   static AtomicLong maxId = new AtomicLong(0);
 

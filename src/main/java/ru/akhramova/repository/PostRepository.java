@@ -2,11 +2,13 @@ package ru.akhramova.repository;
 
 import ru.akhramova.model.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 public class PostRepository {
   static AtomicLong maxId = new AtomicLong(0);
@@ -14,7 +16,7 @@ public class PostRepository {
   private Map<Long, Post> posts = new ConcurrentHashMap<>();
 
   public List<Post> all() {
-    return posts.values().stream().toList();
+    return new ArrayList<>(posts.values());
   }
 
   public Optional<Post> getById(long id) {

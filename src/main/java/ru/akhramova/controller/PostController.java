@@ -1,11 +1,11 @@
 package ru.akhramova.controller;
 
 import com.google.gson.Gson;
+import jakarta.servlet.http.HttpServletResponse;
 import ru.akhramova.exception.NotFoundException;
 import ru.akhramova.model.Post;
 import ru.akhramova.service.PostService;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Reader;
 
